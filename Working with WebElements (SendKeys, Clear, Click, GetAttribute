@@ -1,34 +1,48 @@
 from selenium import webdriver
 #from selenium.webdriver.chrome.service import Service
 
-driver=webdriver.Chrome(executable_path="C:\\Users\\xxxx\\Desktop\\JAVA\\ChromeDriver\\chromedriver.exe")
+#identifying the file path to ChromeDriver
+driver=webdriver.Chrome(executable_path="C:\\Users\\xxxx\\Desktop\\JAVA\\ChromeDriver\\chromedriver.exe") 
 driver.maximize_window()
 
-driver.get("https://www.ziprecruiter.com/login?realm=candidates")
+#calling the website
+driver.get("https://www.ziprecruiter.com/login?realm=candidates") 
 
 username=driver.find_element_by_name("email")
 
-enableStatus=username.is_enabled()
+#checking that username field is enabled
+enableStatus=username.is_enabled() 
 
-displayStatus=username.is_displayed()
+#checking that username field is displayed
+displayStatus=username.is_displayed() 
 
 print(enableStatus)
 print(displayStatus)
 
-username.clear()
+#clearing the username field
+username.clear() 
 
-attrType=username.get_attribute("type")
+attrType=username.get_attribute("type") 
 
-paddingData=username.value_of_css_property("padding")
+paddingData=username.value_of_css_property("padding") 
 
+#getting the type
 print(attrType)
-print(paddingData)
 
-username.send_keys("MyEmail")
+#getting the padding data
+print(paddingData) 
+
+#entering email address to the username field
+username.send_keys("MyEmail")  
 
 password=driver.find_element_by_name("password")
-password.send_keys("MyPassword")
+
+#entering my password in the password field
+password.send_keys("MyPassword")  
 
 loginButton=driver.find_element_by_class_name("btn")
-loginButton.click()
+
+#using the click function to hit the login button
+loginButton.click()  
+
 driver.quit()
